@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../static/css/mypage.css"/>
+	<title>マイページ</title>
+</head>
+
+<body>
+<div class="Form">
+<h1>マイページ</h1>
+<div class="Form-Item">
+    <p class="Form-Item-Label">
+    <span class="Form-Item-Label-Required"></span>氏名</p>
+    <input type="text" class="Form-Item-Input" placeholder="例）山田太郎">
+  </div>
+  
+   <div class="Form-Item">
+    <p class="Form-Item-Label">
+    <span class="Form-Item-Label-Required"></span>UserID</p>
+    <input type="text" class="Form-Item-Input" placeholder="例）UserID">
+  </div>
+  
+     <div class="float-end">
+     <a th:href="ここに追加 URL" class="btn btn-a">出勤報告</a>
+      </div>
+      
+     <div class="float-end">
+     <a th:href="ここに追加" class="btn btn-b">退勤報告</a>
+      </div>
+      
+     <div class="float-end">
+     <a th:href="ここに追加" class="btn btn-c">勤怠修正</a>
+      </div>
+      
+     <div class="float-end">
+     <a th:href="ここに追加" class="btn btn-d">勤怠一覧</a>
+      </div>
+      
+     <div class="float-end">
+     <a th:href="ここに追加" class="btn btn-e">経費申請</a>
+      </div>
+      
+        <div class="float-end">
+     <a th:href="ここに追加" class="btn btn-f">経費一覧</a>
+      </div>
+    
+    </div>
+</body>
+</html>
