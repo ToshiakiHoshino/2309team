@@ -1,7 +1,5 @@
 package com.example.demo.service;
 
-public class MonthListService {
-
-	
+public class mypage {
 
 }
