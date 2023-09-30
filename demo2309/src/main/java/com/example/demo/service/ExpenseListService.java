@@ -26,6 +26,6 @@ public class ExpenseListService {
    * @return 検索結果
    */
   public List<ExpenseListEntity> searchAll() {
-    return expenseList.findAll();
+    return expenseListRepository.findAll();
   }
 }

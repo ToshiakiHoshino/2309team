@@ -3,7 +3,7 @@
 
 <div class="Form">
 
-	<head>
+	<head th:replace="common/head :: head_fragment(title = '経費一覧', scripts = ~{::script}, links = ~{::link})">
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,59 +12,34 @@
 	</head>
 
 
+	<body>
+		<h2>経費一覧</h2>
 
-   
-    <body>
-        <h2>経費一覧</h2>
+		<div class="Form-Item"> <!--なんかこれ消したらグレーの細い線が消える-->
+		</div>
 
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-              User ID
-            </p>
-            <input type="search" class="Form-Item-Input" placeholder="例）team2309">
-        </div>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>申請日</th>
+					<th>項目</th>
+					<th>金額</th>
+					<th>備考</th>
+				</tr>
+			</thead>
 
-        <button class="Form-Btn-s">検索</button>
+			<tbody>
+				<tr th:each="expenseClaim : ${expenseList}" th:object="${expenseClaim}" class="align-middle">
+					<td th:text="*{user_id}"></td>
+					<td th:text="${#dates.format(expenseClaim.application_date, 'yyyy/MM/dd')}"></td>
+					<td th:text="*{item}"></td>
+					<td th:text="*{price}"></td>
+					<td th:text="*{remarks}"></td>
+				</tr>
+			</tbody>
 
-        <table border="1">
-            <tr>
-                <th>申請日</th>
-                <th>項目</th>
-                <th>金額</th>
-                <th>備考</th>
-            </tr>
-            <tr>
-                <td>YYYYMMDD</td>
-                <td>田中太郎</td>
-                <td>11500</td>
-                <td>東京国際クルーズターミナル〜新橋</td>
-            </tr>
-            <tr>
-                <td>YYYYMMDD</td>
-                <td>山田花子</td>
-                <td>11500</td>
-                <td>東京国際クルーズターミナル〜新橋</td>
-            </tr>
-            <tr>
-                <td>YYYYMMDD</td>
-                <td>鈴木次郎</td>
-                <td>11500</td>
-                <td>東京国際クルーズターミナル〜新橋</td>
-            </tr>
-            <tr>
-                <td>YYYYMMDD</td>
-                <td>鈴木次郎</td>
-                <td>11500</td>
-                <td>東京国際クルーズターミナル〜新橋</td>
-            </tr>
-            <tr>
-                <td>YYYYMMDD</td>
-                <td>鈴木次郎</td>
-                <td>11500</td>
-                <td>東京国際クルーズターミナル〜新橋</td>
-            </tr>
-        </table>  
-        <button class="Form-Btn-r">戻る</button>
-    </body>
+		</table>
+		<a th:href="@{/mypage}"><button class="Form-Btn-r">戻る</button></a>
+	</body>
 </div>
-
