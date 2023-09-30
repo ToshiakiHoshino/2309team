@@ -2,7 +2,7 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 //	マイページのコントローラー
 	
@@ -16,37 +16,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 	    }
 		
 		  //出勤報告への遷移
-		    @RequestMapping("/attendance")
+		    @PostMapping("/attendance")
 		    public String attendance(Model model) {
 		    	return "attendance";
 		    }
 		    
 		  //退勤報告への遷移
-		    @RequestMapping("/leaving")
+		    @PostMapping("/leaving")
 		    public String leaving(Model model) {
 		        return "leaving";
 		    }
 		    
 		  //勤怠一覧への遷移
-		    @RequestMapping("/attendance_list")
+		    @PostMapping("/attendance_list")
 		    public String attendance_list(Model model) {
 		        return "attendance_list";
 		    }
 		    
-		    //勤怠修正への遷移
-		    @RequestMapping("/attendance_revies")
+		    //月別勤怠一覧への遷移
+		    @PostMapping("/month_list")
 		    public String attendance_revies(Model model) {
-		        return "attendance_revies";
+		        return "month_list";
 		    }
 		    
 		    //経費申請への遷移
-		    @RequestMapping("/expenseClaim")
+		    @PostMapping("/expenseClaim")
 		    public String expenseClaim(Model model) {
 		        return "expenseClaim";
 		    }
 		    
 		    //経費一覧への遷移
-		    @RequestMapping("/expenseList")
+		    @PostMapping("/expenseList")
 		    public String expenseList(Model model) {
 		        return "expenseList";
 		    }

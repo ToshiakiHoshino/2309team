@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
+<head th:fragment="head_fragment(title.links)">
+  <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/css/mypage.css"/>
+	<link rel="stylesheet" href="../../resources/static/css/NewFile.css">
 	<title>マイページ</title>
 </head>
 
@@ -23,29 +23,12 @@
     <input type="text" class="Form-Item-Input" placeholder="例）UserID">
   </div>
   
-     <div class="float-end">
-     <a th:href="ここに追加 URL" class="btn btn-a">出勤報告</a>
-      </div>
-      
-     <div class="float-end">
-     <a th:href="ここに追加" class="btn btn-b">退勤報告</a>
-      </div>
-      
-     <div class="float-end">
-     <a th:href="ここに追加" class="btn btn-c">勤怠修正</a>
-      </div>
-      
-     <div class="float-end">
-     <a th:href="ここに追加" class="btn btn-d">勤怠一覧</a>
-      </div>
-      
-     <div class="float-end">
-     <a th:href="ここに追加" class="btn btn-e">経費申請</a>
-      </div>
-      
-        <div class="float-end">
-     <a th:href="ここに追加" class="btn btn-f">経費一覧</a>
-      </div>
+     <button onclick="location.href='attendance'" type="button" class="float-end">出勤報告</button>
+     <button onclick="location.href='leaving'" type="button" class="float-end">退勤報告</button>
+     <button onclick="location.href='attendance_list'" type="button" class="float-end">月別勤怠一覧</button>
+     <button onclick="location.href='month_list'" type="button" class="float-end">勤怠一覧</button>
+     <button onclick="location.href='expenseClaim'" type="button" class="float-end">経費申請</button>
+     <button onclick="location.href='expenseList'" type="button" class="float-end">経費一覧</button>
     
     </div>
 </body>
