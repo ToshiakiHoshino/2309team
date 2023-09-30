@@ -14,36 +14,36 @@ import lombok.Data;
 /**
  * ユーザー情報 Entity
  */
-@Entity
 @Data
+@Entity
 @Table(name = "expenses_table")
 public class ExpenseListEntity {
-  /**
-   * UserID
-   */
-  @Id
-  @Column(name = "user_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long userId;
- 
-  /**
-   * 申請日
-   */
-  @Column(name = "application_date", nullable = false)
-  private Date applicationDate;
-  /**
-   * 項目
-   */
-  @Column(name = "item,  length = 100, nullable = false")
-  private String item;
-  /**
-   * 金額
-   */
-  @Column(name = "price, nullable = false")
-  private Integer price;
-  /**
-   * 備考
-   */
-  @Column(name = "remarks", length = 100)
-  private String remarks;
+	/**
+	 * UserID
+	 */
+	@Id
+	@Column(name = "user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer userId;
+
+	/**
+	 * 申請日
+	 */
+	@Column(name = "application_date")
+	private Date applicationDate;
+	/**
+	 * 項目
+	 */
+	@Column(name = "item")
+	private String item;
+	/**
+	 * 金額
+	 */
+	@Column(name = "price")
+	private Integer price;
+	/**
+	 * 備考
+	 */
+	@Column(name = "remarks")
+	private String remarks;
 }

@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.demo.entity.ExpenseListEntity;
 import com.example.demo.service.ExpenseListService;
 
 /**
@@ -14,24 +16,21 @@ import com.example.demo.service.ExpenseListService;
 @Controller
 public class ExpenseListController {
 
-  /**
-   * ユーザー情報 Service
-   */
-  @Autowired
-  private ExpenseListService expenseClaimService;
+	/**
+	 * ユーザー情報 Service
+	 */
+	@Autowired
+	private ExpenseListService expenseClaimService;
 
-  /**
-   * ユーザー情報詳細画面を表示
-   * @param id 表示するユーザーID
-   * @param model Model
-   * @return ユーザー情報詳細画面
-   */
-  @GetMapping("/expenseList/{id}")
-  public String displayView(@PathVariable Long id, Model model) {
-    return "expenseList/view";
-  }
-  
-
-  
-
+	/**
+	 * ユーザー情報一覧画面を表示
+	 * @param model Model
+	 * @return ユーザー情報一覧画面
+	 */
+	@GetMapping(value = "/expenseList/{user_id}")
+	public String displayList(Model model) {
+		List<ExpenseListEntity> expenseList = expenseClaimService.searchAll();
+		model.addAttribute("expenseList", expenseList);
+		return "expenseList";
+	}
 }

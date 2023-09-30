@@ -9,4 +9,6 @@ import com.example.demo.entity.ExpenseListEntity;
  * ユーザー情報 Repository
  */
 @Repository
-public interface ExpenseListRepository extends JpaRepository<ExpenseListEntity, Long> {}
+public interface ExpenseListRepository extends JpaRepository<ExpenseListEntity, Integer> {
+	
+}
