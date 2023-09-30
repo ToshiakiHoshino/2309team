@@ -23,9 +23,6 @@ public class AttendanceListEntity  implements Serializable{
 	@Column(name = "user_id")
 	private Long userId;
 	
-	@Column(name =  "name")
-	private String name;
-
 	@Column(name = "status")
 	private String status;
 
@@ -40,8 +37,6 @@ public class AttendanceListEntity  implements Serializable{
 
 	@Column(name = "end_time")
 	private Time endTime;
-	
-	private Time workingTime;
 	
 	@Column(name = "break_time")
 	private Time breakTime;

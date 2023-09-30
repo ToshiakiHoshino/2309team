@@ -20,7 +20,7 @@ public class AttendanceListController {
 	public String displayList(Model model) {
 		List<AttendanceListEntity> userlist = attendanceListService.searchAll();
 		model.addAttribute("userlist", userlist);
-		return "user/attendance_list";
+		return "attendance_list";
 				
 	}
 }
