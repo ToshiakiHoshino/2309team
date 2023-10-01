@@ -4,32 +4,37 @@
 <head th:fragment="head_fragment(title.links)">
   <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../../resources/static/css/NewFile.css">
+	<link rel="stylesheet" href="../static/css/mypage.css">
 	<title>マイページ</title>
 </head>
 
 <body>
-<div class="Form">
-<h1>マイページ</h1>
-<div class="Form-Item">
-    <p class="Form-Item-Label">
-    <span class="Form-Item-Label-Required"></span>氏名</p>
-    <input type="text" class="Form-Item-Input" placeholder="例）山田太郎">
-  </div>
-  
-   <div class="Form-Item">
-    <p class="Form-Item-Label">
-    <span class="Form-Item-Label-Required"></span>UserID</p>
-    <input type="text" class="Form-Item-Input" placeholder="例）UserID">
-  </div>
-  
+  <div class="Form">
+    <h1>マイページ</h1>
+    <div class="Form-Item">
+      <p class="Form-Item-Label">
+        <span class="Form-Item-Label-Required"></span>氏名
+      </p>
+      <!-- <input type="text" class="Form-Item-Input" placeholder="山田太郎"> -->
+      <h2>山田太郎</h2>
+    </div>
+
+    <div class="Form-Item">
+      <p class="Form-Item-Label">
+        <span class="Form-Item-Label-Required"></span>UserID
+      </p>
+      <!-- <input type="text" class="Form-Item-Input" placeholder="1234"> -->
+      <h2>1234</h2>
+    </div>
+    
      <button onclick="location.href='attendance'" type="button" class="float-end">出勤報告</button>
      <button onclick="location.href='leaving'" type="button" class="float-end">退勤報告</button>
-     <button onclick="location.href='attendance_list'" type="button" class="float-end">月別勤怠一覧</button>
      <button onclick="location.href='month_list'" type="button" class="float-end">勤怠一覧</button>
      <button onclick="location.href='expenseClaim'" type="button" class="float-end">経費申請</button>
      <button onclick="location.href='expenseList'" type="button" class="float-end">経費一覧</button>
-    
-    </div>
+     <button onclick="location.href='attendance_list'" type="button" class="float-end">経費修正</button>
+
+  </div>
 </body>
+
 </html>
