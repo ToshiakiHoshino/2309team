@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div class="Form">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../static/css/expenseadjustment.css">
+		<title>経費修正</title>
+	</head>
+
+	<h2>経費修正</h2>
+
+	<div class="Form-Item">
+		<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>User ID
+		</p>
+		<input type="search" class="Form-Item-Input" placeholder="例）team2309">
+	</div>
+
+	<div class="Form-Item">
+		<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>申請日</p>
+		<input type="text" class="Form-Item-Input" placeholder="YYYYMMDD">
+	</div>
+
+	<div class="Form-Item">
+		<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>項目</p>
+		<input type="text" class="Form-Item-Input" placeholder="例）交通費">
+	</div>
+
+	<div class="Form-Item">
+		<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>金額</p>
+		<input type="text" class="Form-Item-Input" placeholder="例）24980">
+	</div>
+
+	<div class="Form-Item">
+		<p class="Form-Item-Label isMsg">備考</p>
+		<textarea class="Form-Item-Textarea"></textarea>
+	</div>
+
+	<button class="Form-Btn-a">修正申請</button>
+
+	<button class="Form-Btn-r">戻る</button>
+
+</div>
