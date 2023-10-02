@@ -1,36 +1,27 @@
 package com.example.demo.dto;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.sql.Date;
+
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public class ExpenseAdjustmentRequest {
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class ExpenseAdjustmentRequest implements Serializable{
 	
-	/**
-	 * ユーザー情報 リクエストデータ
-	 */
-	@Data
-
-	  /**
-	   * 名前
-	   */
-	  @NotEmpty(message = "名前を入力してください")
-	  @Size(max = 100, message = "名前は100桁以内で入力してください")
-	 //実装1行
-	  private String name;
-	  /**
-	   * 住所
-	   */
-	//文字数255、エラーメッセージ”住所は255桁以内で入力してください”でバリデーションかけること
-	 //実装2行
-	  @Size(max = 255, message = "住所は255桁以内で入力してください")
-	  private String address;
-	  /**
-	   * 電話番号
-	   */
-	  @Pattern(regexp = "0\\d{1,4}-\\d{1,4}-\\d{4}", message = "電話番号の形式で入力してください")
-	  private String phone;
-
-
+	private Long expensesId;
+	
+	private Long userId;
+	
+	private Date applicationDate;
+	
+	private String item;
+	
+	private Integer price;
+	
+	@NotEmpty(message = "修正理由を記入してください")
+	private String remarks;
 }

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.dto.ExpenseAdjustmentRequest;
+import com.example.demo.entity.ExpenseAdjustmentEntity;
 import com.example.demo.service.ExpenseAdjustmentService;
 
 /**
@@ -35,25 +37,28 @@ public class ExpenseAdjustmentController {
    */
   @GetMapping("/user/{id}/edit")
   public String displayEdit(@PathVariable Long id, Model model) {
-    User user = ExpenseAdjustmentService.findById(id);
+	ExpenseAdjustmentEntity user = expenseAdjustmentService.findById(id);
     ExpenseAdjustmentRequest expenseAdjustmentRequest = new ExpenseAdjustmentRequest();
-    ExpenseAdjustmentRequest.setId(user.getId());
-    ExpenseAdjustmentRequest.setName(user.getName());
-    ExpenseAdjustmentRequest.setPhone(user.getPhone());
-    ExpenseAdjustmentRequest.setAddress(user.getAddress());
+    expenseAdjustmentRequest.setExpensesId(user.getExpensesId());
+    expenseAdjustmentRequest.setUserId(user.getUserId());
+    expenseAdjustmentRequest.setApplicationDate(user.getApplicationDate());
+    expenseAdjustmentRequest.setItem(user.getItem());
+    expenseAdjustmentRequest.setPrice(user.getPrice());
+    expenseAdjustmentRequest.setRemarks(user.getRemarks());
     model.addAttribute("expenseAdjustmentRequest", expenseAdjustmentRequest);
     return "user/edit";
   }
+  
   /**
    * ユーザー更新
-   * @param userRequest リクエストデータ
+   * @param ExpenseAdjustmentRequest リクエストデータ
    * @param model Model
    * @return ユーザー情報詳細画面
    */
   @RequestMapping(value = "/user/update", method = RequestMethod.POST)
   public String update(@Validated @ModelAttribute ExpenseAdjustmentRequest expenseAdjustmentRequest, BindingResult result, Model model) {
     if (result.hasErrors()) {
-      List<String> errorList = new ArrayList<String>();
+      ArrayList<String> errorList = new ArrayList<String>();
       for (ObjectError error : result.getAllErrors()) {
         errorList.add(error.getDefaultMessage());
       }
@@ -61,7 +66,7 @@ public class ExpenseAdjustmentController {
       return "user/edit";
     }
     // ユーザー情報の更新
-    ExpenseAdjustmentService.update(expenseAdjustmentRequest);
-    return String.format("redirect:/user/%d", expenseAdjustmentRequest.getId());
+    expenseAdjustmentService.update(expenseAdjustmentRequest);
+    return String.format("redirect:/user/%d", expenseAdjustmentRequest.getExpensesId());
   }
 }
