@@ -17,14 +17,15 @@ public class ExpenseClaimRequest implements Serializable {
 	/**
 	 * User ID
 	 */
+	
 	@NotEmpty(message = "User IDを入力してください")
-	private Long userId;
+	private Integer user_id;
 	/**
 	 * 申請日
 	 */
 	@NotEmpty(message = "申請日を入力してください")
-	@Pattern(regexp = "0\\d{1,4}-\\d{1,4}-\\d{4}", message = "YYYYMMDDの形式で入力してください")
-	private Date applicationDate;
+	@Pattern(regexp = "^[0-9]{4}/[0-9]{2}/[0-9]{2}$", message = "YYYY/MM/DDの形式で入力してください")
+	private Date application_date;
 	/**
 	 * 項目
 	 */

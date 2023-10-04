@@ -32,7 +32,7 @@ public class ExpenseClaimService {
     expenseClaim.setItem(expenseClaimRequest.getItem());
     expenseClaim.setPrice(expenseClaimRequest.getPrice());
     expenseClaim.setRemarks(expenseClaimRequest.getRemarks());
-    expenseClaim.setApplicationDate(expenseClaimRequest.getApplicationDate());
+    expenseClaim.setApplicationDate(expenseClaimRequest.getApplication_date());
     expenseClaimRepository.save(expenseClaim);
   }
 }
