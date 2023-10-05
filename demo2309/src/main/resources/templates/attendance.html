@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<linkhead>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/attendance.css}" rel="stylesheet">
 
-	<link rel="stylesheet" href="../static/css/attendance.css"/>
 	<title>出勤報告</title>
-</head>
+	</head>
 
-<body>
-	<h1>出勤報告</h1>
-	<div class="Form">
-		<div class="Form-Item">
-			<p class="Form-Item-Label">
-				<span class="Form-Item-Label-Required">必須</span>UserID
-			</p>
-			<input type="text" class="Form-Item-Input" placeholder="例）12345">
-		</div>
-		<div class="Form-Item">
-			<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
-			<div class="Form-Select">
-				<select>
-					<option value="">--選択してください--</option>
-					<option value="attendance">出勤</option>
-					<option value="behind_time">遅刻</option>
-					<option value="absence">欠席</option>
-					<option value="compensatory_holiday">代休</option>
-					<option value="holiday">休日</option>
-					<option value="paid">有給</option>
-					<option value="others">その他</option>
-				</select>
+	<body>
+		<div class="container">
+			<div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" th:text="${error}"></label>
 			</div>
-		</div>
-		<div class="Form-Item">
-			<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
-			<input type="date" class="Form-Item-Input" placeholder="--YYYY/MM/DD--">
-		</div>
-		<div class="Form-Item">
-			<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
-			<input type="time" class="Form-Item-Input" placeholder="--HH:MM--">
-		</div>
-		<div class="Form-Item">
-			<p class="Form-Item-Label">&emsp;&emsp;&emsp;備考</p>
-			<input type="text" class="Form-Item-Input">
-		</div>
-		<br>
-		<br>
-		<input type="submit" class="Form-Btn" value="送信する">
-		<input type="submit" class="Back-Btn" value="戻る">
+			<h1>出勤報告</h1>
+			<form th:action="@{/user/create}" th:object="${attendanceRequest}" th:method="post">
 
-	</div>
-</body>
+				<div class="Form">
+					<div class="Form-Item">
+						<p class="Form-Item-Label">
+							<span class="Form-Item-Label-Required">必須</span>UserID
+						</p>
+						<input type="text" th:field="*{user_id}" class="Form-Item-Input" placeholder="例）12345">
+					</div>
+					<div class="Form-Item">
+						<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
+						<div class="Form-Select">
+							<select th:field="*{status}">
+								<option value="">--選択してください--</option>
+								<option value="attendance">出勤</option>
+								<option value="behind_time">遅刻</option>
+								<option value="absence">欠席</option>
+								<option value="compensatory_holiday">代休</option>
+								<option value="holiday">休日</option>
+								<option value="paid">有給</option>
+								<option value="others">その他</option>
+							</select>
+						</div>
+					</div>
+					<div class="Form-Item">
+						<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
+						<input type="date" th:field="*{start_date}" class="Form-Item-Input" required />
+					</div>
+					<div class="Form-Item">
+						<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
+						<input type="time" th:field="*{start_time}" class="Form-Item-Input" required />
+					</div>
+					<div class="Form-Item">
+						<p class="Form-Item-Label">&emsp;&emsp;&emsp;備考</p>
+						<input type="text" th:field="*{remarks}" class="Form-Item-Input">
+					</div>
+					<br>
+					<br>
+					<input type="submit" class="Form-Btn" value="送信する">
+					<form>
+						<input type="button" onclick="history.back()" class="Back-Btn" value="戻る">
+					</form>
+
+
+				</div>
+	</body>
 
 </html>
