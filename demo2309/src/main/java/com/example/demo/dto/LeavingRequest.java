@@ -1,9 +1,14 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -12,24 +17,26 @@ public class LeavingRequest implements Serializable {
 	/**
 	 * ID
 	 */
-	@NotEmpty(message = "UserIDを入力してください")
-	private String userid;
+	@NotNull(message = "UserIDを入力してください")
+	private Integer user_id;
 
 	//ステータス
-	@NotEmpty(message = "ステータスを入力してください")
+	@NotNull(message = "ステータスを入力してください")
 	private String status;
 
 	/**
 	 * 退勤日
 	 */
-	@NotEmpty(message = "退勤日を入力してください")
-	private String end_day;
+	@NotNull(message = "退勤日を入力してください")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate end_date;
 
 	/**
 	 * 退勤時間
 	 */
-	@NotEmpty(message = "退勤時間を入力してください")
-	private String end_time;
+	@NotNull(message = "退勤時間を入力してください")
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime end_time;
 
 	/**
 	 * 備考
@@ -40,17 +47,18 @@ public class LeavingRequest implements Serializable {
 	/**
 	 * 退勤時間
 	 */
-	@NotEmpty(message = "休憩時間を入力してください")
-	private String break_time;
+	@NotNull(message = "休憩時間を入力してください")
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime break_time;
 
 	//勤怠ID
-	public Object getAttendance_id() {
+	//public Object getAttendance_id() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+		//return null;
+	//}
 
-	public void setAttendance_id(Object attendance_id) {
+	//public void setAttendance_id(Object attendance_id) {
 		// TODO 自動生成されたメソッド・スタブ
 
-	}
+	//}
 }

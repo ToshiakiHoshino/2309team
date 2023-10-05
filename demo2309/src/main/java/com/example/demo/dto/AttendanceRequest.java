@@ -1,33 +1,42 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
+
+
 
 @Data
 public class AttendanceRequest implements Serializable {
 	/**
 	 * ID
 	 */
-	@NotEmpty(message = "UserIDを入力してください")
-	private String userid;
+	@NotNull(message = "UserIDを入力してください")
+	private Integer user_id;
 
 	//ステータス
-	@NotEmpty(message = "ステータスを入力してください")
+	@NotNull(message = "ステータスを入力してください")
 	private String status;
 
 	/**
 	 * 出勤日
 	 */
-	@NotEmpty(message = "UserIDを入力してください")
-	private String start_day;
+	@NotNull(message = "出勤日を入力してください")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate start_date;
 	/**
 	 * 出勤時間
 	 */
-	@NotEmpty(message = "UserIDを入力してください")
-	private String start_time;
+	@NotNull(message = "出勤時間を入力してください")
+	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime start_time;
 	/**
 	 * 備考
 	 */
@@ -35,14 +44,12 @@ public class AttendanceRequest implements Serializable {
 	private String remarks;
 
 	//勤怠ID
-	public void setAttendance_id(Object attendance_id) {
+	//public void setAttendance_id(Object attendance_id) {
 		// TODO 自動生成されたメソッド・スタブ
-		return;
-	}
+		//return;}
 
-	public Object getAttendance_id() {
+	//public Object getAttendance_id() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+		//return null;}
 
 }

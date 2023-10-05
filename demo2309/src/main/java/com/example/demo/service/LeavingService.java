@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,23 +13,38 @@ import com.example.demo.repository.LeavingRepository;
 //Service
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class LeavingService{
+public class LeavingService {
 
-//Repository
+	//Repository
 	@Autowired
 	private LeavingRepository leavingRepository;
+
+	//全検索
+	public List<LeavingEntity> searchAll() {
+		return leavingRepository.findAll();
+	}
 	
-	
-//退勤新規登録
-	public void create(LeavingRequest leavingRequest) {
-		Date now = new Date();
-	    LeavingEntity leaving = new LeavingEntity();
-		leaving.setUserid(leavingRequest.getUserid());
+	//主キー検索
+	public LeavingEntity findById(Integer user_id) {
+		return leavingRepository.findById(user_id).get();
+	}
+
+	//退勤新規登録(更新）
+	public void update(LeavingRequest leavingRequest) {
+		LeavingEntity leaving = findById(leavingRequest.getUser_id());
+		leaving.setUser_id(leavingRequest.getUser_id());
 		leaving.setStatus(leavingRequest.getStatus());
-		leaving.setEnd_day(leavingRequest.getEnd_day());
+		leaving.setEnd_date(leavingRequest.getEnd_date());
 		leaving.setEnd_time(leavingRequest.getEnd_time());
 		leaving.setBreak_time(leavingRequest.getBreak_time());
-		leaving.setAttendance_id(leavingRequest.getAttendance_id());
 		leavingRepository.save(leaving);
 	}
+
+	//private LeavingEntity findById(String userid) {
+	// TODO 自動生成されたメソッド・スタブ
+	//return null;
+	//}
+
+	//稼働時間
+
 }

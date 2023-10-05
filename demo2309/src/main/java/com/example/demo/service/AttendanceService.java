@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,17 +24,16 @@ public class AttendanceService{
 	public void create(AttendanceRequest attendanceRequest) {
 		Date now = new Date();
 	    AttendanceEntity attendance = new AttendanceEntity();
-		attendance.setUserid(attendanceRequest.getUserid());
+		attendance.setUser_id(attendanceRequest.getUser_id());
 		attendance.setStatus(attendanceRequest.getStatus());
-		attendance.setStart_day(attendanceRequest.getStart_day());
+		attendance.setStart_date(attendanceRequest.getStart_date());
 		attendance.setStart_time(attendanceRequest.getStart_time());
-		attendance.setAttendance_id(attendanceRequest.getAttendance_id());
+		
 		attendanceRepository.save(attendance);
 	}
 
-
-	public List<AttendanceEntity> saerchAll() {
+	//public List<AttendanceEntity> saerchAll() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+		//return null;
+	//}
 }

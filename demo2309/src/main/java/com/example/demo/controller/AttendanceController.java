@@ -11,7 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.AttendanceRequest;
 import com.example.demo.service.AttendanceService;
@@ -29,12 +29,12 @@ public class AttendanceController {
 	public String displayAdd(Model model) {
 		model.addAttribute("attendanceRequest", new AttendanceRequest());
 
-		return "user/attendance";
+		return "attendance";
 	}
 	
 
 	//出勤登録
-	@RequestMapping("/user/attendance")
+	@PostMapping("/user/create")
 	public String create(@Validated @ModelAttribute AttendanceRequest attendanceRequest, BindingResult result,
 			Model model) {
 		//入力判定
@@ -47,10 +47,10 @@ public class AttendanceController {
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
 			model.addAttribute("attendanceRequest", attendanceRequest);
-			return "user/attendance";
+			return "attendance";
 		}
 		// 出勤情報の登録
 		attendanceService.create(attendanceRequest);
-		return "redirect:/user/attendance_list";
+		return "attendance";
 	}
 }
