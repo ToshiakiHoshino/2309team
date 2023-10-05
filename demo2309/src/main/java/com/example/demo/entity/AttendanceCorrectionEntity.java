@@ -18,8 +18,14 @@ public class AttendanceCorrectionEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private Long userId;
+	
+	@Column(name = "attendance_ID")
+	private Long attendanceId;
+	
 	@Column(name = "status")
-	private String statu;
+	private String status;
 	
 	@Column(name = "start_date")
 	private Date startData;
@@ -32,8 +38,6 @@ public class AttendanceCorrectionEntity {
 	
 	@Column(name = "end_time")
 	private Time endTime;
-	
-	private Time workingTime;
 	
 	@Column(name = "break_time")
 	private Time breakTime;

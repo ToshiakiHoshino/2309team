@@ -12,6 +12,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class AttendanceCorrectionRequest implements Serializable{
 	
+	private Long userId;
+	
 	private String status;
 	
 	private Date startDate;
@@ -22,11 +24,9 @@ public class AttendanceCorrectionRequest implements Serializable{
 	
 	private Time endTime;
 	
-	private Time workingTime;
-	
 	private Time breakTime;
 	
-	@NotEmpty(message = "修正理由を記入してください")
+	@NotEmpty(message = "修正理由を入力してください")
 	private String reasons;
 	
 	private String remarks;
