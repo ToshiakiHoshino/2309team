@@ -41,6 +41,9 @@ public class AttendanceListEntity  implements Serializable{
 	@Column(name = "break_time")
 	private Time breakTime;
 	
+	@Column(name = "operating_time")
+	private Time operatingTime;
+	
 	@Column(name = "remarks")
 	private String remarks;
 }
