@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.dto.AttendanceRequest;
 import com.example.demo.dto.LeavingRequest;
 import com.example.demo.service.LeavingService;
 
@@ -22,6 +23,7 @@ public class LeavingController {
 	//Service
 	@Autowired
 	private LeavingService leavingService;
+	private AttendanceRequest attendanceRequest;
 
 	
 	//登録画面の表示
@@ -41,7 +43,7 @@ public class LeavingController {
 		if (result.hasErrors()) {
 			// 入力チェックエラー
 			List<String> errorList = new ArrayList<String>();
-		for (ObjectError error : result.getAllErrors()) {	
+		for (ObjectError error : result.getAllErrors()) {
 				errorList.add(error.getDefaultMessage());
 			}
 			//エラー判定後の画面遷移
@@ -49,7 +51,7 @@ public class LeavingController {
 			return "leaving";
 		}
 		// 退勤情報の登録
-		leavingService.update(leavingRequest);
-		return "redirect:/attendance_list";
+		leavingService.update(leavingRequest,attendanceRequest);
+	    return String.format("redirect:/attendance_list", leavingRequest.getUser_id());
 	}
 }

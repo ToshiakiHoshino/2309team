@@ -43,6 +43,12 @@ public class AttendanceRequest implements Serializable {
 	@Size(max = 100, message = "100文字以内で入力してください")
 	private String remarks;
 
+	/**
+	 * 勤怠ID
+	 */
+	private Integer attendance_id;
+	
+	
 	//勤怠ID
 	//public void setAttendance_id(Object attendance_id) {
 		// TODO 自動生成されたメソッド・スタブ

@@ -5,6 +5,7 @@ package com.example.demo.entity;
 
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -26,8 +27,8 @@ import lombok.Data;
 @Table(name = "attendance")
 public class AttendanceEntity implements Serializable{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private Integer user_id;
 	
@@ -39,11 +40,30 @@ public class AttendanceEntity implements Serializable{
 	private LocalDate start_date;
 	
 	@Column(name = "start_time")
-	@DateTimeFormat(pattern = "HH:mm")
+	@DateTimeFormat(pattern = "HH:mm:ss")
 	private LocalTime start_time;
 	
 	@Column(name = "remarks")
 	private String remarks;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "attendance_id")
+	private Integer attendance_id;
+	
+	@Column(name = "end_date")
+	private LocalDate end_date;
+	
+	@Column(name = "end_time")
+	private LocalTime end_time;
+	
+	@Column(name = "break_time")
+	private LocalTime break_time;
+
+	@Column(name = "operetion_time")
+	private Duration operetion_time;
+	
+
 
 	//public void setUser_id(String userid2) {
 		// TODO 自動生成されたメソッド・スタブ}
