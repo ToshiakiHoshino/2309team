@@ -26,6 +26,8 @@ public class AttendanceCorrectionRequest implements Serializable{
 	
 	private Time breakTime;
 	
+	private Time operatingTime;
+	
 	@NotEmpty(message = "修正理由を入力してください")
 	private String reasons;
 	

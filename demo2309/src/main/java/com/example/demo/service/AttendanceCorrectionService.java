@@ -29,6 +29,7 @@ public class AttendanceCorrectionService {
 		attendanceCorrection.setEndDate(attendanceCorrectionRequest.getEndDate());
 		attendanceCorrection.setEndTime(attendanceCorrectionRequest.getEndTime());
 		attendanceCorrection.setBreakTime(attendanceCorrectionRequest.getBreakTime());
+		attendanceCorrection.setOperatingTime(attendanceCorrectionRequest.getOperatingTime());
 		attendanceCorrection.setReason(attendanceCorrectionRequest.getReasons());
 		attendanceCorrection.setRemarks(attendanceCorrectionRequest.getRemarks());
 		attendanceCorrectionRepository.save(attendanceCorrection);

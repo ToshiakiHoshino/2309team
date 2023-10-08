@@ -42,6 +42,9 @@ public class AttendanceCorrectionEntity {
 	@Column(name = "break_time")
 	private Time breakTime;
 	
+	@Column(name = "operating_time")
+	private Time operatingTime;
+	
 	private String reason;
 	
 	@Column(name = "remarks")

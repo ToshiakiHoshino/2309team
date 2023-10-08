@@ -37,6 +37,7 @@ public class AttendanceCorrectionController{
 		attendanceCorrectionRequest.setEndDate(user.getEndDate());
 		attendanceCorrectionRequest.setEndTime(user.getEndTime());
 		attendanceCorrectionRequest.setBreakTime(user.getBreakTime());
+		attendanceCorrectionRequest.setOperatingTime(user.getOperatingTime());
 		attendanceCorrectionRequest.setReasons(user.getReason());
 		attendanceCorrectionRequest.setRemarks(user.getRemarks());
 		model.addAttribute("attendanceCorrectionRequest", attendanceCorrectionRequest);
