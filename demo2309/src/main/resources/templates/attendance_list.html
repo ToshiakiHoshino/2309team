@@ -15,6 +15,7 @@
         <table class="table">
                 <tr>
                     <th>User Id</th>
+                    <th>勤怠ID </th>
                     <th>ステータス</th>
                     <th>出勤日</th>
                     <th>出勤時間</th>
@@ -26,7 +27,8 @@
                     <th></th>
                 </tr>
                 <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
-                    <td th:text="*{userId}"></td>               
+                    <td th:text="*{userId}"></td>
+                    <td th:text="*{attendanceId}"></td>               
                     <td th:text="*{status}"></td>
                     <td th:text="*{startDate}"></td>
                     <td th:text="*{startTime}"></td>
@@ -35,7 +37,7 @@
                     <td th:text="*{operatingTime}"></td>   
                     <td th:text="*{breakTime}"></td>
                     <td th:text="*{remarks}"></td>
-                   <td><a th:href="@{/user/{userId}/attendance_correction(userId=${user.userId})}" class="btn btn-secondary">修正</a></td>
+                   <td><a th:href="@{/user/{attendanceId}/attendance_correction(attendanceId=${user.attendanceId})}" class="btn btn-secondary">修正</a></td>
                 </tr>
         </table>
        <div class="flaot-end">

@@ -23,6 +23,9 @@ public class AttendanceListEntity  implements Serializable{
 	@Column(name = "user_id")
 	private Long userId;
 	
+	@Column(name = "attendance_id")
+	private Long attendanceId;
+	
 	@Column(name = "status")
 	private String status;
 
