@@ -1,11 +1,12 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -14,28 +15,32 @@ import lombok.Data;
  */
 @Data
 public class ExpenseClaimRequest implements Serializable {
+	
+	private Integer expense_id;
+	
 	/**
 	 * User ID
 	 */
 	
-	@NotEmpty(message = "User IDを入力してください")
+	@NotNull(message = "User IDを入力してください")
 	private Integer user_id;
 	/**
 	 * 申請日
 	 */
-	@NotEmpty(message = "申請日を入力してください")
-	@Pattern(regexp = "^[0-9]{4}/[0-9]{2}/[0-9]{2}$", message = "YYYY/MM/DDの形式で入力してください")
-	private Date application_date;
+	@NotNull(message = "申請日を入力してください")
+	//@Pattern(regexp = "^[0-9]{4}/[0-9]{2}/[0-9]{2}$", message = "YYYY/MM/DDの形式で入力してください")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate application_date;
 	/**
 	 * 項目
 	 */
-	@NotEmpty(message = "項目を入力してください")
+	@NotNull(message = "項目を入力してください")
 	@Size(max = 50, message = "項目は50文字以内で入力してください")
 	private String item;
 	/**
 	 * 金額
 	 */
-	@NotEmpty(message = "金額を入力してください")
+	@NotNull(message = "金額を入力してください")
 	private Integer price;
 	/**
 	 * 備考

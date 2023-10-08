@@ -29,10 +29,11 @@ public class ExpenseClaimService {
   public void create(ExpenseClaimRequest expenseClaimRequest) {
     Date now = new Date();
     ExpenseClaimEntity expenseClaim = new ExpenseClaimEntity();
+    expenseClaim.setUser_id(expenseClaimRequest.getUser_id());
     expenseClaim.setItem(expenseClaimRequest.getItem());
     expenseClaim.setPrice(expenseClaimRequest.getPrice());
     expenseClaim.setRemarks(expenseClaimRequest.getRemarks());
-    expenseClaim.setApplicationDate(expenseClaimRequest.getApplication_date());
+    expenseClaim.setApplication_date(expenseClaimRequest.getApplication_date());
     expenseClaimRepository.save(expenseClaim);
   }
 }

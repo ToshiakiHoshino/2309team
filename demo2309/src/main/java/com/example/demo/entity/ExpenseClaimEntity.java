@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,21 +16,31 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "expenses_table")
+@Table(name = "expense_table")
 public class ExpenseClaimEntity {
+	
+	/**
+	 * 経費ID
+	 */
+
+	@Id
+	@Column(name = "expense_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer expense_id;
+	
+	
 	/**
 	 * UserID
 	 */
-	@Id
+	
 	@Column(name = "user_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
+	private Integer user_id;
 
 	/**
 	 * 申請日
 	 */
-	@Column(name = "application_date", nullable = false)
-	private Date applicationDate;
+	@Column(name = "application_date")
+	private LocalDate application_date;
 	/**
 	 * 項目
 	 */
@@ -44,6 +54,6 @@ public class ExpenseClaimEntity {
 	/**
 	 * 備考
 	 */
-	@Column(name = "remarks", length = 100)
+	@Column(name = "remarks")
 	private String remarks;
 }

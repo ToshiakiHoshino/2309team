@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../static/css/expenseClaim.css">
+		<link rel="stylesheet" th:href="@{/css/expenseClaim.css}">
 		<title>経費申請</title>
 	</head>
 	
@@ -23,12 +23,12 @@
 		<p class="Form-Item-Label">
 			<span class="Form-Item-Label-Required">必須</span>User ID
 		</p>
-		<input type="search" th:field="*{user_id}" class="Form-Item-Input" placeholder="例）team2309">
+		<input type="text" th:field="*{user_id}" class="Form-Item-Input" placeholder="例）12345678">
 	</div>
 
 	<div class="Form-Item">
 		<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>申請日</p>
-		<input type="date" th:field="*{application_date}" class="Form-Item-Input" placeholder="YYYY/MM/DD">
+		<input type="date" th:field="*{application_date}" class="Form-Item-Input">
 	</div>
 
 	<div class="Form-Item">
