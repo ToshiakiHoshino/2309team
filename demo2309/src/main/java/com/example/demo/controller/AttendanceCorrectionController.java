@@ -58,7 +58,7 @@ public class AttendanceCorrectionController{
 		}
 		
 		attendanceCorrectionService.update(attendanceCorrectionRequest);
-		return String.format("redilect:/user/%d", attendanceCorrectionRequest.getUserId());
+		return String.format("redirect:/user/%d", attendanceCorrectionRequest.getUserId());
 	}
 
 }
