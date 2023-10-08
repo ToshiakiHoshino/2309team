@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "expenses_table")
+@Table(name = "expense_table")
 public class ExpenseAdjustmentEntity {
 	
 	
@@ -24,34 +25,35 @@ public class ExpenseAdjustmentEntity {
 	* ExpensesID
 	*/
 	@Id
-	@Column(name = "expenses_id")
+	@Column(name = "expense_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long expensesId;
+	private Integer expenseId;
 
-	/**
-	 * UserID
-	 */
-	@Column(name = "user_id")
-	private Long userId;
+//	/**
+//	 * UserID
+//	 */
+//	@Column(name = "user_id")
+//	private Integer userId;
 
 	/**
 	 * 申請日
 	 */
-	@Column(name = "application_date", nullable = false)
+	@Column(name = "application_date")
 	private Date applicationDate;
 	/**
 	 * 項目
 	 */
-	@Column(name = "item,  length = 100, nullable = false")
+	@Column(name = "item")
 	private String item;
 	/**
 	 * 金額
 	 */
-	@Column(name = "price, nullable = false")
+	@Column(name = "price")
 	private Integer price;
 	/**
 	 * 備考
 	 */
-	@Column(name = "remarks", length = 100)
+	@Column(name = "remarks")
 	private String remarks;
+	
 }

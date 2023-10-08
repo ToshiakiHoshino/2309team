@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dto.ExpenseAdjustmentRequest;
 import com.example.demo.entity.ExpenseAdjustmentEntity;
@@ -24,7 +24,7 @@ import com.example.demo.service.ExpenseAdjustmentService;
 @Controller
 public class ExpenseAdjustmentController {
   /**
-   * ユーザー情報 Service
+   * 経費情報 Service
    */
   @Autowired
   private ExpenseAdjustmentService expenseAdjustmentService;
@@ -33,40 +33,40 @@ public class ExpenseAdjustmentController {
    * 経費修正画面を表示
    * @param id 表示する経費ID
    * @param model Model
-   * @return ユーザー編集画面
+   * @return 経費編集画面
    */
-  @GetMapping("/user/{id}/edit")
-  public String displayEdit(@PathVariable Long id, Model model) {
-	ExpenseAdjustmentEntity user = expenseAdjustmentService.findById(id);
+  @GetMapping("/user/{expenseId}/expenseadjustment")
+  public String displayEdit(@PathVariable Integer expenseId, Model model) {
+	ExpenseAdjustmentEntity user = expenseAdjustmentService.findById(expenseId);
     ExpenseAdjustmentRequest expenseAdjustmentRequest = new ExpenseAdjustmentRequest();
-    expenseAdjustmentRequest.setExpensesId(user.getExpensesId());
-    expenseAdjustmentRequest.setUserId(user.getUserId());
+    expenseAdjustmentRequest.setExpenseId(user.getExpenseId());
     expenseAdjustmentRequest.setApplicationDate(user.getApplicationDate());
     expenseAdjustmentRequest.setItem(user.getItem());
     expenseAdjustmentRequest.setPrice(user.getPrice());
     expenseAdjustmentRequest.setRemarks(user.getRemarks());
     model.addAttribute("expenseAdjustmentRequest", expenseAdjustmentRequest);
-    return "user/edit";
+    return "expenseadjustment";
   }
   
   /**
-   * ユーザー更新
+   * 経費更新
    * @param ExpenseAdjustmentRequest リクエストデータ
    * @param model Model
-   * @return ユーザー情報詳細画面
+   * @return 経費編集画面
    */
-  @RequestMapping(value = "/user/update", method = RequestMethod.POST)
-  public String update(@Validated @ModelAttribute ExpenseAdjustmentRequest expenseAdjustmentRequest, BindingResult result, Model model) {
+  @RequestMapping("/user/expenseadjustment/ceate")
+  public String expenseadjustment(@Validated @ModelAttribute ExpenseAdjustmentRequest expenseAdjustmentRequest, BindingResult result, Model model) {
     if (result.hasErrors()) {
-      ArrayList<String> errorList = new ArrayList<String>();
+      List<String> errorList = new ArrayList<String>();
       for (ObjectError error : result.getAllErrors()) {
         errorList.add(error.getDefaultMessage());
       }
       model.addAttribute("validationError", errorList);
-      return "user/edit";
+      return "expenseadjustment";
     }
-    // ユーザー情報の更新
+    
+    // 経費情報の更新
     expenseAdjustmentService.update(expenseAdjustmentRequest);
-    return String.format("redirect:/user/%d", expenseAdjustmentRequest.getExpensesId());
+    return "mypage";
   }
 }

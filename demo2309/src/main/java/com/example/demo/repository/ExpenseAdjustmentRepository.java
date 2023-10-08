@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.ExpenseAdjustmentEntity;
 
 /**
- * ユーザー情報 Repository
+ * 経費情報 Repository
  */
 @Repository
-public interface ExpenseAdjustmentRepository extends JpaRepository<ExpenseAdjustmentEntity, Long> {
+public interface ExpenseAdjustmentRepository extends JpaRepository<ExpenseAdjustmentEntity, Integer> {
 	
 }

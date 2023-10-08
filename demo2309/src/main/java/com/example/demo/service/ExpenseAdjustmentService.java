@@ -9,32 +9,32 @@ import com.example.demo.entity.ExpenseAdjustmentEntity;
 import com.example.demo.repository.ExpenseAdjustmentRepository;
 
 /**
- * ユーザー情報 Service
+ * 経費情報 Service
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class ExpenseAdjustmentService {
+	
   /**
-   * ユーザー情報 Repository
+   * 経費情報 Repository
    */
   @Autowired
   private ExpenseAdjustmentRepository expenseAdjustmentRepository;
   
   /**
-   * ユーザー情報 主キー検索
+   * 経費情報 主キー検索
    * @return 検索結果
    */
-  public ExpenseAdjustmentEntity findById(Long id) {
-    return expenseAdjustmentRepository.findById(id).get();
+  public ExpenseAdjustmentEntity findById(Integer expenseId) {
+    return expenseAdjustmentRepository.findById(expenseId).get();
   }
+  
   /**
-   * ユーザー情報 更新
-   * @param user ユーザー情報
+   * 経費情報 更新
    */
   public void update(ExpenseAdjustmentRequest expenseAdjustmentRequest) {
-	ExpenseAdjustmentEntity expenseAdjustmentEntity = findById(expenseAdjustmentRequest.getExpensesId());
-	expenseAdjustmentEntity.setExpensesId(expenseAdjustmentRequest.getExpensesId());
-	expenseAdjustmentEntity.setUserId(expenseAdjustmentRequest.getUserId());
+	ExpenseAdjustmentEntity expenseAdjustmentEntity = findById(expenseAdjustmentRequest.getExpenseId());
+	expenseAdjustmentEntity.setExpenseId(expenseAdjustmentRequest.getExpenseId());
 	expenseAdjustmentEntity.setApplicationDate(expenseAdjustmentRequest.getApplicationDate());
 	expenseAdjustmentEntity.setItem(expenseAdjustmentRequest.getItem());
 	expenseAdjustmentEntity.setPrice(expenseAdjustmentRequest.getPrice());
