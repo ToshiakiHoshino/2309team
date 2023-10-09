@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -41,6 +42,7 @@ public class ExpenseClaimRequest implements Serializable {
 	 * 金額
 	 */
 	@NotNull(message = "金額を入力してください")
+	@PositiveOrZero(message = "正しい金額を入力してください")
 	private Integer price;
 	/**
 	 * 備考
