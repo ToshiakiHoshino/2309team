@@ -21,6 +21,7 @@
 		<table border="1">
 			<thead>
 				<tr>
+					<th>経費ID</th>
 					<th>User ID</th>
 					<th>申請日</th>
 					<th>項目</th>
@@ -31,6 +32,7 @@
 
 			<tbody>
 				<tr th:each="expenseClaim : ${expenseList}" th:object="${expenseClaim}" class="align-middle">
+					<td th:text="*{expenseId}"></td>
 					<td th:text="*{userId}"></td>
 					<td th:text="${#dates.format(expenseClaim.applicationDate, 'yyyy/MM/dd')}"></td>
 					<td th:text="*{item}"></td>
