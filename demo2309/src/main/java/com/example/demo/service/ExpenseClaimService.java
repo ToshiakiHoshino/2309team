@@ -29,6 +29,7 @@ public class ExpenseClaimService {
   public void create(ExpenseClaimRequest expenseClaimRequest) {
     Date now = new Date();
     ExpenseClaimEntity expenseClaim = new ExpenseClaimEntity();
+    expenseClaim.setExpense_id(expenseClaimRequest.getExpense_id());
     expenseClaim.setUser_id(expenseClaimRequest.getUser_id());
     expenseClaim.setItem(expenseClaimRequest.getItem());
     expenseClaim.setPrice(expenseClaimRequest.getPrice());
