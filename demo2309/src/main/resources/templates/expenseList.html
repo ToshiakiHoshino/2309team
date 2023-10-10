@@ -32,9 +32,10 @@
 
 			<tbody>
 				<tr th:each="expenseClaim : ${expenseList}" th:object="${expenseClaim}" class="align-middle">
-					<td th:text="*{expenseId}"></td>
-					<td th:text="*{userId}"></td>
-					<td th:text="${#dates.format(expenseClaim.applicationDate, 'yyyy/MM/dd')}"></td>
+					<td th:text="*{expense_id}"></td>
+					<td th:text="*{user_id}"></td>
+					<td th:text="${#temporals.format(expenseClaim.application_date, 'yyyy/MM/dd')}"></td>
+
 					<td th:text="*{item}"></td>
 					<td th:text="*{price}"></td>
 					<td th:text="*{remarks}"></td>
