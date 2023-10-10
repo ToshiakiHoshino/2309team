@@ -11,8 +11,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
-
-
 @Data
 public class AttendanceRequest implements Serializable {
 	/**
@@ -47,15 +45,4 @@ public class AttendanceRequest implements Serializable {
 	 * 勤怠ID
 	 */
 	private Integer attendance_id;
-	
-	
-	//勤怠ID
-	//public void setAttendance_id(Object attendance_id) {
-		// TODO 自動生成されたメソッド・スタブ
-		//return;}
-
-	//public Object getAttendance_id() {
-		// TODO 自動生成されたメソッド・スタブ
-		//return null;}
-
 }

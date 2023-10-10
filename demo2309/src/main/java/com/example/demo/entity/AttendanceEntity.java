@@ -5,7 +5,6 @@ package com.example.demo.entity;
 
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -61,13 +60,6 @@ public class AttendanceEntity implements Serializable{
 	private LocalTime break_time;
 
 	@Column(name = "operetion_time")
-	private Duration operetion_time;
+	private LocalTime operetion_time;
 	
-
-
-	//public void setUser_id(String userid2) {
-		// TODO 自動生成されたメソッド・スタブ}
-
-	//public void setAttendance_id(Object attendance_id) {
-		// TODO 自動生成されたメソッド・スタ}
 }

@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import ch.qos.logback.core.util.Duration;
 import lombok.Data;
 
 
@@ -61,5 +60,5 @@ public class LeavingRequest implements Serializable {
 	/**
 	 * 稼働時間
 	 */
-	private Duration operetoin_time;
+	private LocalTime operetoin_time;
 }

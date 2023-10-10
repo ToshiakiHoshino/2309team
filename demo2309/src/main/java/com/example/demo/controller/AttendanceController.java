@@ -22,8 +22,8 @@ public class AttendanceController {
 	//Service
 	@Autowired
 	private AttendanceService attendanceService;
-	
-	
+
+
 	//新規登録画面の表示
 	@GetMapping("/user/attendance")
 	public String displayAdd(Model model) {
@@ -31,7 +31,7 @@ public class AttendanceController {
 
 		return "attendance";
 	}
-	
+
 
 	//出勤登録
 	@PostMapping("/user/create")
@@ -51,6 +51,6 @@ public class AttendanceController {
 		}
 		// 出勤情報の登録
 		attendanceService.create(attendanceRequest);
-		return "attendance";
+		return "redirect:/user/attendance_list";
 	}
 }

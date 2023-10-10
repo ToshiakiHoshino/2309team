@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.dto.AttendanceRequest;
 import com.example.demo.dto.LeavingRequest;
 import com.example.demo.service.LeavingService;
 
@@ -23,14 +22,11 @@ public class LeavingController {
 	//Service
 	@Autowired
 	private LeavingService leavingService;
-	private AttendanceRequest attendanceRequest;
-
 	
 	//登録画面の表示
-		@GetMapping("/user/leaving")
-		public String displayAdd(Model model) {
+		@GetMapping("/user/leaving/{attendance_id}")
+		public String displayAdd(@ModelAttribute LeavingRequest leavingRequest,Integer attendance_id, Model model) {
 			model.addAttribute("leavingRequest", new LeavingRequest());
-
 			return "leaving";
 		}
 		
@@ -48,10 +44,15 @@ public class LeavingController {
 			}
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
+			model.addAttribute("leavingRequest", leavingRequest);
+
 			return "leaving";
 		}
 		// 退勤情報の登録
-		leavingService.update(leavingRequest,attendanceRequest);
-	    return String.format("redirect:/attendance_list", leavingRequest.getUser_id());
+		leavingService.update(leavingRequest);
+	    return String.format("redirect:/user/attendance_list", leavingRequest.getUser_id());
 	}
+	
+	
+    
 }
