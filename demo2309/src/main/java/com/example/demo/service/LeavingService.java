@@ -1,14 +1,11 @@
 package com.example.demo.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.LeavingRequest;
-import com.example.demo.entity.AttendanceEntity;
-import com.example.demo.repository.AttendanceRepository;
+import com.example.demo.entity.AttendanceCorrectionEntity;
 import com.example.demo.repository.LeavingRepository;
 
 //Service
@@ -20,19 +17,12 @@ public class LeavingService {
 	@Autowired
 	private LeavingRepository leavingRepository;
 	
-	@Autowired
-    private AttendanceRepository attendanceRepository;
 
-
-	//全検索
-	public List<AttendanceEntity> searchAll() {
-		return leavingRepository.findAll();
-	}
 //
 //	//ID検索
-//	public AttendanceEntity findById(Integer attendance_id) {
-//		return leavingRepository.findById(attendance_id).get();
-//	}
+	public AttendanceCorrectionEntity findById(Integer attendance_id) {
+		return leavingRepository.findById(attendance_id).get();
+	}
 	
 //	//出勤時間取得
 //	public LocalTime findAttendanceTimeById(Integer attendance_id) {
@@ -46,12 +36,12 @@ public class LeavingService {
 
 	//退勤新規登録(更新）
 	public void update(LeavingRequest leavingRequest) {
-		AttendanceEntity leaving = leavingRepository.findOne(leavingRequest.getAttendance_id());
-//		leaving.setUser_id(leavingRequest.getUser_id());
+		AttendanceCorrectionEntity leaving = leavingRepository.findById(leavingRequest.getAttendance_id()).orElseThrow();
+		leaving.setUserId(leavingRequest.getUser_id());
 		leaving.setStatus(leavingRequest.getStatus());
-		leaving.setEnd_date(leavingRequest.getEnd_date());
-		leaving.setEnd_time(leavingRequest.getEnd_time());
-		leaving.setBreak_time(leavingRequest.getBreak_time());
+		leaving.setEndDate(leavingRequest.getEnd_date());
+		leaving.setEndTime(leavingRequest.getEnd_time());
+		leaving.setBreakTime(leavingRequest.getBreak_time());
 		
 //		//稼働時間
 //		// 1.年月日時分秒をセット

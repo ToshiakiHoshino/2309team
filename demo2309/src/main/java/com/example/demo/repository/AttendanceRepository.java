@@ -3,8 +3,8 @@ package com.example.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entity.AttendanceEntity;
+import com.example.demo.entity.AttendanceCorrectionEntity;
 
 @Repository
-public interface AttendanceRepository extends JpaRepository<AttendanceEntity, Integer> {
+public interface AttendanceRepository extends JpaRepository<AttendanceCorrectionEntity, Integer> {
 }
