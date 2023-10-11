@@ -4,27 +4,35 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
-
 public class AttendanceCorrectionRequest implements Serializable{
 	
 	private Integer attendanceId;
 	
 	private String status;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate startDate;
 	
+	@DateTimeFormat(pattern="HH:mm:ss")
 	private LocalTime startTime;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate endDate;
 	
+	@DateTimeFormat(pattern="HH:mm:ss")
 	private LocalTime endTime;
 	
+	@DateTimeFormat(pattern="HH:mm:ss")
 	private LocalTime breakTime;
 	
+	@DateTimeFormat(pattern="HH:mm:ss")
 	private LocalTime operatingTime;
 	
 	@NotNull(message = "修正理由を入力してください")
