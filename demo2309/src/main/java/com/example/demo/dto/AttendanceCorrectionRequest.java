@@ -1,36 +1,34 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
+
 public class AttendanceCorrectionRequest implements Serializable{
 	
-	private Long userId;
+	private Integer attendanceId;
 	
 	private String status;
 	
-	private Date startDate;
+	private LocalDate startDate;
 	
-	private Time starTime;
+	private LocalTime startTime;
 	
-	private Date endDate;
+	private LocalDate endDate;
 	
-	private Time endTime;
+	private LocalTime endTime;
 	
-	private Time breakTime;
+	private LocalTime breakTime;
 	
-	private Time operatingTime;
+	private LocalTime operatingTime;
 	
-	@NotEmpty(message = "修正理由を入力してください")
-	private String reasons;
+	@NotNull(message = "修正理由を入力してください")
+	private String reason;
 	
 	private String remarks;
-
 }
