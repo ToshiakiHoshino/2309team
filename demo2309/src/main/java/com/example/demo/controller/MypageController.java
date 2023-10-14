@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 	public class MypageController {
 		
 		//マイページ
-		@GetMapping("/mypage")
+		@GetMapping("user/mypage")
 		public String mypage(Model model) {
 	    	return "mypage";
 	    }
@@ -33,12 +33,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 		        return "attendance_list";
 		    }
 		    
-		    //月別勤怠一覧への遷移
-		    @PostMapping("/month_list")
-		    public String attendance_revies(Model model) {
-		        return "month_list";
-		    }
-		    
 		    //経費申請への遷移
 		    @PostMapping("/expenseClaim")
 		    public String expenseClaim(Model model) {
@@ -49,6 +43,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 		    @PostMapping("/expenseList")
 		    public String expenseList(Model model) {
 		        return "expenseList";
+		    }
+		    
+		    //経費修正への遷移
+		    @PostMapping("/user/expenseadjustment")
+		    public String attendance_revies(Model model) {
+		        return "mypage";
 		    }
 		    
 	}
