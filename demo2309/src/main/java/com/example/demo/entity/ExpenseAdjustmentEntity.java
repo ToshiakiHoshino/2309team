@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,7 +39,7 @@ public class ExpenseAdjustmentEntity {
 	 * 申請日
 	 */
 	@Column(name = "application_date")
-	private Date applicationDate;
+	private LocalDate applicationDate;
 	/**
 	 * 項目
 	 */
