@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,7 +35,7 @@ public class AttendanceCorrectionRequest implements Serializable{
 	@DateTimeFormat(pattern="HH:mm")
 	private LocalTime operatingTime;
 	
-	@NotNull(message = "修正理由を入力してください")
+	@NotEmpty(message = "修正理由を入力してください")
 	private String reason;
 	
 	private String remarks;

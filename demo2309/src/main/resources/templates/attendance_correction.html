@@ -11,7 +11,7 @@
 <body>
     <div class="container">
     <div th:if="${validationError}" th:each="error : ${validationError}">
-    <label class="text-danger" th:text="${error}"></label></div>
+    <label class="text-danger" th:text="${error}" style="color: red;"></label></div>
         <h1>勤怠修正</h1>
    <form th:action="@{/user/attendance_list}" th:object="${attendanceCorrectionRequest}" th:method="POST">
    
@@ -21,14 +21,14 @@
      <p class="Form-Item-Label">ステータス</p>
     <select class="Form-Item-Input" th:field="*{status}">
         <option value="">--選択してください--</option>
-        <option value="attendance">出勤</option>
-        <option value="leaving">退勤</option>
-        <option value="behind_time">遅刻</option>
-        <option value="absence">欠席</option>
-        <option value="compensatory_holiday">代休</option>
-        <option value="holiday">休日</option>
-        <option value="paid">有給</option>
-        <option value="others">その他</option>
+        <option value="出勤">出勤</option>
+        <option value="退勤">退勤</option>
+        <option value="遅刻">遅刻</option>
+        <option value="欠席">欠席</option>
+        <option value="代休">代休</option>
+        <option value="休日">休日</option>
+        <option value="有給">有給</option>
+        <option value="その他">その他</option>
     </select>
 </div>
 
@@ -68,7 +68,7 @@
 </div>
     <div class="text-center">
         <input type="submit" class="btn btn-primary" value="登録">
-        <a th:href="@{/user/attendance_list}" class="btn btn-secondary">戻る</a>
+        <a href="/attendance_list" class="btn btn-secondary">戻る</a>
       </div>
     </form>
  </div>
