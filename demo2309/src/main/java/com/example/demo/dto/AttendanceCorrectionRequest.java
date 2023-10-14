@@ -39,4 +39,6 @@ public class AttendanceCorrectionRequest implements Serializable{
 	private String reason;
 	
 	private String remarks;
+	
+	private Integer userId;
 }
