@@ -27,7 +27,7 @@
 					<th>項目</th>
 					<th>金額</th>
 					<th>備考</th>
-					<th>修正</th>
+					<th></th>
 				</tr>
 			</thead>
 
@@ -40,7 +40,8 @@
 					<td th:text="*{item}"></td>
 					<td th:text="*{price}"></td>
 					<td th:text="*{remarks}"></td>
-					<!--<td><a th:href="@{/user/{expenseId}/expenseadjustment(expenseId=${user.expenseId})}" class="btn btn-edit">修正</a></td>-->
+					<!--<td><a th:href="@{/user/{expenseId}/expenseadjustment(expenseId=${user.expenseId})}" class="btn btn-secondary">修正</a></td>>-->
+					<!--<td><a th:href="@{/user/{attendanceId}/attendance_correction(attendanceId=${user.attendanceId})}" class="btn btn-secondary">修正</a></td>-->
 				</tr>
 			</tbody>
 
