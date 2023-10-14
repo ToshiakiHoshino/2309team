@@ -3,6 +3,7 @@ package com.example.demo.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -35,7 +36,7 @@ public class ExpenseClaimRequest implements Serializable {
 	/**
 	 * 項目
 	 */
-	@NotNull(message = "項目を入力してください")
+	@NotEmpty(message = "項目を入力してください")
 	@Size(max = 50, message = "項目は50文字以内で入力してください")
 	private String item;
 	/**
