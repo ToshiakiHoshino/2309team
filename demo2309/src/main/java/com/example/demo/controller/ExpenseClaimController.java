@@ -47,7 +47,7 @@ public class ExpenseClaimController {
 	 * @return ユーザー情報一覧画面
 	 */
 	@PostMapping("/expenseClaim/create")
-	public String create(@Validated @ModelAttribute ExpenseClaimRequest expenseClaimRequest, BindingResult result, Model model) {
+	public String create(@ModelAttribute @Validated ExpenseClaimRequest expenseClaimRequest, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
 			// 入力チェックエラーの場合
