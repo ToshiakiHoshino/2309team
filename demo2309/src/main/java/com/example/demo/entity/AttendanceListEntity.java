@@ -1,4 +1,5 @@
 package com.example.demo.entity;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,16 +12,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-
 @Data
 @Entity
 @Table(name = "attendance")
-public class AttendanceCorrectionEntity {
+public class AttendanceListEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "attendance_id")
-	private Integer attendanceid;
+	@Column(name = "attendance_ID")
+	private Integer attendanceId;
 	
 	@Column(name = "status")
 	private String status;
