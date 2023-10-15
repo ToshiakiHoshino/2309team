@@ -20,7 +20,7 @@ public class AttendanceCorrectionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "attendance_id")
-	private Integer attendance_id;
+	private Integer attendanceid;
 	
 	@Column(name = "status")
 	private String status;
