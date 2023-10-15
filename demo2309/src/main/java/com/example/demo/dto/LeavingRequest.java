@@ -11,8 +11,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
-
-
 @Data
 public class LeavingRequest implements Serializable {
 	/**
@@ -24,7 +22,7 @@ public class LeavingRequest implements Serializable {
 	//ステータス
 	@NotNull(message = "ステータスを入力してください")
 	private String status;
-	
+
 	/**
 	 * 備考
 	 */
@@ -44,19 +42,19 @@ public class LeavingRequest implements Serializable {
 	@NotNull(message = "退勤時間を入力してください")
 	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime end_time;
-	
+
 	/**
 	 * 休憩時間
 	 */
 	@NotNull(message = "休憩時間を入力してください")
 	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime break_time;
-	
+
 	/**
 	 * 勤怠ID
 	 */
 	private Integer attendance_id;
-	
+
 	/**
 	 * 稼働時間
 	 */

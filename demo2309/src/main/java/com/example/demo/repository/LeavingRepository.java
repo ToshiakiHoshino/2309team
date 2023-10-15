@@ -7,5 +7,4 @@ import com.example.demo.entity.AttendanceCorrectionEntity;
 
 @Repository
 public interface LeavingRepository extends JpaRepository<AttendanceCorrectionEntity, Integer> {
-
 }

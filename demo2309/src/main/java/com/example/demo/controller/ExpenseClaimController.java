@@ -28,7 +28,6 @@ public class ExpenseClaimController {
 	@Autowired
 	private ExpenseClaimService expenseClaimService;
 
-
 	/**
 	 * ユーザー新規登録画面を表示
 	 * @param model Model

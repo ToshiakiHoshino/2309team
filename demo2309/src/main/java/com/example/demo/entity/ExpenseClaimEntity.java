@@ -18,21 +18,18 @@ import lombok.Data;
 @Entity
 @Table(name = "expense_table")
 public class ExpenseClaimEntity {
-	
+
 	/**
 	 * 経費ID
 	 */
-
 	@Id
 	@Column(name = "expense_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer expense_id;
-	
-	
+
 	/**
 	 * UserID
 	 */
-	
 	@Column(name = "user_id")
 	private Integer user_id;
 
@@ -41,16 +38,19 @@ public class ExpenseClaimEntity {
 	 */
 	@Column(name = "application_date")
 	private LocalDate application_date;
+	
 	/**
 	 * 項目
 	 */
 	@Column(name = "item")
 	private String item;
+	
 	/**
 	 * 金額
 	 */
 	@Column(name = "price")
 	private Integer price;
+	
 	/**
 	 * 備考
 	 */

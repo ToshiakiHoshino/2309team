@@ -10,16 +10,12 @@ import com.example.demo.repository.AttendanceListRepository;
 
 @Service
 public class AttendanceListService {
-	
+
 	@Autowired
 	private AttendanceListRepository attendanceListRepository;
-	
-	
-//ユーザー情報検索
+
+	//ユーザー情報検索
 	public List<AttendanceListEntity> searchAll() {
 		return attendanceListRepository.findAll();
-		
 	}
-	
-
 }

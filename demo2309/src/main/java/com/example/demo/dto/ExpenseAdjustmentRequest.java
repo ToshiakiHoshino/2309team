@@ -15,22 +15,21 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ExpenseAdjustmentRequest implements Serializable{
-	
+
 	@NotNull(message = "経費IDを入力してください")
 	private Integer expenseId;
-	
+
 	@NotNull(message="申請日を選択してください")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate applicationDate;
-	
+
 	@NotEmpty(message = "項目を入力してください")
 	private String item;
 
 	@NotNull(message = "金額を入力してください")
 	private Integer price;
-	
+
 	@NotEmpty(message = "備考を記入してください")
 	@Size(max = 100, message = "備考は100桁以内で入力してください")
 	private String remarks;
-	
 }

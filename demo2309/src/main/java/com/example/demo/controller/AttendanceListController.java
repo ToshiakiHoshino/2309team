@@ -13,14 +13,13 @@ import com.example.demo.service.AttendanceListService;
 @Controller
 public class AttendanceListController {
 	@Autowired
-    AttendanceListService attendanceListService;
-	
-//勤怠一覧を表示
+	AttendanceListService attendanceListService;
+
+	//勤怠一覧を表示
 	@GetMapping("/user/attendance_list")
 	public String displayList(Model model) {
 		List<AttendanceListEntity> userlist = attendanceListService.searchAll();
 		model.addAttribute("userlist", userlist);
 		return "attendance_list";
-				
 	}
 }

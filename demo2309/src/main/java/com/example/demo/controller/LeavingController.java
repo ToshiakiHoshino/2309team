@@ -23,17 +23,16 @@ public class LeavingController {
 	//Service
 	@Autowired
 	private LeavingService leavingService;
-	
+
 	//登録画面の表示
-		@GetMapping("/user/leaving/{attendance_id}")
-		public String displayAdd(Model model,@ModelAttribute LeavingRequest leavingRequest,@PathVariable("attendance_id") Integer attendance_id) {
-			leavingService.findById(attendance_id);
-//			model.addAttribute("leavingRequest", new LeavingRequest());
-//			model.addAttribute("leavingRequest", leavingRequest);
-			return "leaving";
-		}
-		
-		
+	@GetMapping("/user/leaving/{attendance_id}")
+	public String displayAdd(Model model,@ModelAttribute LeavingRequest leavingRequest,@PathVariable("attendance_id") Integer attendance_id) {
+		leavingService.findById(attendance_id);
+		//			model.addAttribute("leavingRequest", new LeavingRequest());
+		//			model.addAttribute("leavingRequest", leavingRequest);
+		return "leaving";
+	}
+
 	//退勤登録（更新）
 	@PostMapping("/user/leaving/create")
 	public String update(@ModelAttribute("leavingRequest") @Validated  LeavingRequest leavingRequest, BindingResult result,
@@ -42,7 +41,7 @@ public class LeavingController {
 		if (result.hasErrors()) {
 			// 入力チェックエラー
 			List<String> errorList = new ArrayList<String>();
-		for (ObjectError error : result.getAllErrors()) {
+			for (ObjectError error : result.getAllErrors()) {
 				errorList.add(error.getDefaultMessage());
 			}
 			//エラー判定後の画面遷移
@@ -53,9 +52,9 @@ public class LeavingController {
 		}
 		// 退勤情報の登録
 		leavingService.update(leavingRequest);
-	    return String.format("redirect:/user/attendance_list", leavingRequest.getUser_id());
+		return String.format("redirect:/user/attendance_list", leavingRequest.getUser_id());
 	}
-	
-	
-    
+
+
+
 }

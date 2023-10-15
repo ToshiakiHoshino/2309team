@@ -10,5 +10,4 @@ import com.example.demo.entity.ExpenseAdjustmentEntity;
  */
 @Repository
 public interface ExpenseAdjustmentRepository extends JpaRepository<ExpenseAdjustmentEntity, Integer> {
-	
 }

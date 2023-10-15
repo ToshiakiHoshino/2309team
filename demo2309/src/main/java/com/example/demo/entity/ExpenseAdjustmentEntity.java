@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -19,21 +18,20 @@ import lombok.Data;
 @Data
 @Table(name = "expense_table")
 public class ExpenseAdjustmentEntity {
-	
-	
+
 	/**
-	* ExpensesID
-	*/
+	 * ExpensesID
+	 */
 	@Id
 	@Column(name = "expense_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer expenseId;
 
-//	/**
-//	 * UserID
-//	 */
-//	@Column(name = "user_id")
-//	private Integer userId;
+	//	/**
+	//	 * UserID
+	//	 */
+	//	@Column(name = "user_id")
+	//	private Integer userId;
 
 	/**
 	 * 申請日
@@ -55,5 +53,5 @@ public class ExpenseAdjustmentEntity {
 	 */
 	@Column(name = "remarks")
 	private String remarks;
-	
+
 }

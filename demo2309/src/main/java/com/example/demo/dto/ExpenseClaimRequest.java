@@ -17,13 +17,11 @@ import lombok.Data;
  */
 @Data
 public class ExpenseClaimRequest implements Serializable {
-	
+
 	private Integer expense_id;
-	
 	/**
 	 * User ID
 	 */
-	
 	@NotNull(message = "User IDを入力してください")
 	private Integer user_id;
 	/**

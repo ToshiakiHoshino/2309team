@@ -23,7 +23,6 @@ public class AttendanceController {
 	@Autowired
 	private AttendanceService attendanceService;
 
-
 	//新規登録画面の表示
 	@GetMapping("/user/attendance")
 	public String displayAdd(Model model) {
@@ -31,7 +30,6 @@ public class AttendanceController {
 
 		return "attendance";
 	}
-
 
 	//出勤登録
 	@PostMapping("/user/create")

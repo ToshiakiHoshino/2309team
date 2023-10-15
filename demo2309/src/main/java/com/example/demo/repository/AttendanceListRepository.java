@@ -7,5 +7,4 @@ import com.example.demo.entity.AttendanceListEntity;
 
 @Repository
 public interface AttendanceListRepository extends JpaRepository<AttendanceListEntity, Long>{
-
 }

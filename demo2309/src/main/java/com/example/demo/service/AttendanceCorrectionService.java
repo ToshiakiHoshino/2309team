@@ -21,7 +21,7 @@ public class AttendanceCorrectionService {
 		Optional<AttendanceCorrectionEntity> optionalEntity = attendanceCorrectionRepository.findById(attendanceId);
 		return optionalEntity.orElse(new AttendanceCorrectionEntity()); // データが存在しない場合はデフォルト値を返す
 	}
-	
+
 	public void update(AttendanceCorrectionRequest attendanceCorrectionRequest) {
 		AttendanceCorrectionEntity attendanceCorrection = findById(attendanceCorrectionRequest.getAttendanceId());
 		attendanceCorrection.setStatus(attendanceCorrectionRequest.getStatus());
