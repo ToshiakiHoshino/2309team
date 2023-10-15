@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRequest;
@@ -25,11 +26,10 @@ public class LeavingController {
 	
 	//登録画面の表示
 		@GetMapping("/user/leaving/{attendance_id}")
-		public String displayAdd(@ModelAttribute LeavingRequest leavingRequest,Integer attendance_id, Model model) {
-
+		public String displayAdd(Model model,@ModelAttribute LeavingRequest leavingRequest,@PathVariable("attendance_id") Integer attendance_id) {
 			leavingService.findById(attendance_id);
 //			model.addAttribute("leavingRequest", new LeavingRequest());
-			model.addAttribute("leavingRequest", leavingRequest);
+//			model.addAttribute("leavingRequest", leavingRequest);
 			return "leaving";
 		}
 		
