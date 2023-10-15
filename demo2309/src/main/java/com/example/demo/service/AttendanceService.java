@@ -23,7 +23,7 @@ public class AttendanceService{
 		attendance.setStatus(attendanceRequest.getStatus());
 		attendance.setStartDate(attendanceRequest.getStart_date());
 		attendance.setStartTime(attendanceRequest.getStart_time());
-		attendance.setAttendanceId(attendanceRequest.getAttendance_id());
+		attendance.setAttendance_id(attendanceRequest.getAttendance_id());
 
 		attendanceRepository.save(attendance);
 	}
