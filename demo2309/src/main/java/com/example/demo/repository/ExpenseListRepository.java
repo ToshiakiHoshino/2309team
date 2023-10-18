@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.ExpenseListEntity;
 
 /**
- * ユーザー情報 Repository
+ * 経費一覧 Repository
  */
 @Repository
 public interface ExpenseListRepository extends JpaRepository<ExpenseListEntity, Integer> {

@@ -11,21 +11,21 @@ import com.example.demo.entity.ExpenseListEntity;
 import com.example.demo.service.ExpenseListService;
 
 /**
- * ユーザー情報 Controller
+ * 経費一覧 Controller
  */
 @Controller
 public class ExpenseListController {
 
 	/**
-	 * ユーザー情報 Service
+	 * 経費一覧 Service
 	 */
 	@Autowired
 	private ExpenseListService expenseClaimService;
 
 	/**
-	 * ユーザー情報一覧画面を表示
+	 * 経費一覧画面を表示
 	 * @param model Model
-	 * @return ユーザー情報一覧画面
+	 * @return 経費一覧画面
 	 */
 	@GetMapping(value = "/expenseList/{user_id}")
 	public String displayList(Model model) {

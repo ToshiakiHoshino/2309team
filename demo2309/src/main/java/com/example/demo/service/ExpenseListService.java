@@ -9,19 +9,20 @@ import com.example.demo.entity.ExpenseListEntity;
 import com.example.demo.repository.ExpenseListRepository;
 
 /**
- * ユーザー情報 Service
+ * 経費一覧 Service
  */
 @Service
 //@Transactional(rollbackFor = Exception.class)
 public class ExpenseListService {
+	
 	/**
-	 * ユーザー情報 Repository
+	 * 経費一覧 Repository
 	 */
 	@Autowired
 	private ExpenseListRepository expenseListRepository;
 
 	/**
-	 * ユーザー情報 全検索
+	 * 経費一覧 全検索
 	 * @return 検索結果
 	 */
 	public List<ExpenseListEntity> searchAll() {

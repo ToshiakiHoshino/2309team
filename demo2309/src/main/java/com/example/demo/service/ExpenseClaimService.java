@@ -11,20 +11,21 @@ import com.example.demo.entity.ExpenseClaimEntity;
 import com.example.demo.repository.ExpenseClaimRepository;
 
 /**
- * ユーザー情報 Service
+ * 経費申請 Service
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class ExpenseClaimService {
+	
 	/**
-	 * ユーザー情報 Repository
+	 * 経費申請 Repository
 	 */
 	@Autowired
 	private ExpenseClaimRepository expenseClaimRepository;
 
 	/**
 	 * 
-	 * @param user ユーザー情報
+	 * @param expenseClaim 経費申請
 	 */
 	public void create(ExpenseClaimRequest expenseClaimRequest) {
 		Date now = new Date();

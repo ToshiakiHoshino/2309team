@@ -17,21 +17,21 @@ import com.example.demo.dto.ExpenseClaimRequest;
 import com.example.demo.service.ExpenseClaimService;
 
 /**
- * ユーザー情報 Controller
+ * 経費申請 Controller
  */
 @Controller
 public class ExpenseClaimController {
 
 	/**
-	 * ユーザー情報 Service
+	 * 経費申請 Service
 	 */
 	@Autowired
 	private ExpenseClaimService expenseClaimService;
 
 	/**
-	 * ユーザー新規登録画面を表示
+	 * 経費申請画面を表示
 	 * @param model Model
-	 * @return ユーザー情報一覧画面
+	 * @return 経費申請画面
 	 */
 	@GetMapping(value = "/expenseClaim")
 	public String displayAdd(Model model) {
@@ -40,10 +40,10 @@ public class ExpenseClaimController {
 	}
 
 	/**
-	 * ユーザー新規登録
-	 * @param userRequest リクエストデータ
+	 * 経費申請
+	 * @param expenseClaimRequest リクエストデータ
 	 * @param model Model
-	 * @return ユーザー情報一覧画面
+	 * @return 経費申請画面
 	 */
 	@PostMapping("/expenseClaim/create")
 	public String create(@ModelAttribute @Validated ExpenseClaimRequest expenseClaimRequest, BindingResult result, Model model) {
@@ -57,7 +57,7 @@ public class ExpenseClaimController {
 			model.addAttribute("validationError", errorList);
 			return "expenseClaim";
 		}
-		// ユーザー情報の登録
+		// 経費申請
 		expenseClaimService.create(expenseClaimRequest);
 		return "redirect:/expenseClaim";
 	}

@@ -24,25 +24,28 @@ public class ExpenseClaimRequest implements Serializable {
 	 */
 	@NotNull(message = "User IDを入力してください")
 	private Integer user_id;
+	
 	/**
 	 * 申請日
 	 */
 	@NotNull(message = "申請日を入力してください")
-	//@Pattern(regexp = "^[0-9]{4}/[0-9]{2}/[0-9]{2}$", message = "YYYY/MM/DDの形式で入力してください")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate application_date;
+	
 	/**
 	 * 項目
 	 */
 	@NotEmpty(message = "項目を入力してください")
 	@Size(max = 50, message = "項目は50文字以内で入力してください")
 	private String item;
+	
 	/**
 	 * 金額
 	 */
 	@NotNull(message = "金額を入力してください")
 	@PositiveOrZero(message = "正しい金額を入力してください")
 	private Integer price;
+	
 	/**
 	 * 備考
 	 */

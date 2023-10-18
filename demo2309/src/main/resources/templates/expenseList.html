@@ -15,7 +15,7 @@
 	<body>
 		<h2>経費一覧</h2>
 
-		<div class="Form-Item"> <!--なんかこれ消したらグレーの細い線が消える-->
+		<div class="Form-Item">
 		</div>
 
 		<table border="1">
@@ -36,16 +36,13 @@
 					<td th:text="*{expense_id}"></td>
 					<td th:text="*{user_id}"></td>
 					<td th:text="${#temporals.format(expenseClaim.application_date, 'yyyy/MM/dd')}"></td>
-
 					<td th:text="*{item}"></td>
 					<td th:text="*{price}"></td>
 					<td th:text="*{remarks}"></td>
-					<td><a th:href="@{/expenseClaim{expense_id}/expenseadjustment(expense_id=${expenseClaim.expense_id})}"><button class="Form-Btn-e">修正</button></a></td>
-					<!--<td><a th:href="@{/user/{attendanceId}/attendance_correction(attendanceId=${user.attendanceId})}" class="btn btn-secondary">修正</a></td>-->
+					<td><a th:href="@{/user/expenseClaim{expense_id}/expenseadjustment(expense_id=${expenseClaim.expense_id})}"><button class="Form-Btn-e">修正</button></a></td>
 				</tr>
 			</tbody>
-
 		</table>
-		<a th:href="@{/mypage}"><button class="Form-Btn-r">戻る</button></a>
+		<a th:href="@{/user/mypage}"><button class="Form-Btn-r">戻る</button></a>
 	</body>
 </div>

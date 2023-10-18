@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import lombok.Data;
 
 /**
- * ユーザー情報 Entity
+ * 経費申請 Entity
  */
 @Data
 @Entity
