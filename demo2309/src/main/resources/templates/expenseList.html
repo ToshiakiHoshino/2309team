@@ -39,7 +39,7 @@
 					<td th:text="*{item}"></td>
 					<td th:text="*{price}"></td>
 					<td th:text="*{remarks}"></td>
-					<td><a th:href="@{/user/expenseClaim{expense_id}/expenseadjustment(expense_id=${expenseClaim.expense_id})}"><button class="Form-Btn-e">修正</button></a></td>
+					<td><a th:href="@{/user/{expense_id}/expenseadjustment(expense_id=${expenseClaim.expense_id})}"><button class="Form-Btn-e">修正</button></a></td>
 				</tr>
 			</tbody>
 		</table>
