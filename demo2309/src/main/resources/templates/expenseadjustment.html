@@ -20,7 +20,7 @@
 
 		<h2>経費修正</h2>
 
-		<form th:action="@{/user/expenseadjustment/ceate}" th:object="${expenseAdjustmentRequest}" th:method="post">
+		<form th:action="@{/user/expenseadjustment/create}" th:object="${expenseAdjustmentRequest}" th:method="post">
 		
 			<div class="Form-Item">
 				<p class="Form-Item-Label">
@@ -51,13 +51,15 @@
 			</div>
 
 			<div class="Form-Item">
-				<p class="Form-Item-Label isMsg">備考</p>
+				<p class="Form-Item-Label">
+					<span class="Form-Item-Label-Required">必須</span>備考
+					</p>
 				<textarea class="Form-Item-Textarea" th:field="*{remarks}"></textarea>
 			</div>
 
 			<button class="Form-Btn-a" type="submit">修正申請</button>
 
-			<a href="/user/mypage" class="Form-Btn-r">マイページに戻る</a>
+			<a th:href="@{/user/mypage}"><button class="Form-Btn-r">マイページに戻る</button></a>
 
 		</form>
 

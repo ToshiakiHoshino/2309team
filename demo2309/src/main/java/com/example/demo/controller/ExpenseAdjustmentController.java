@@ -54,7 +54,7 @@ public class ExpenseAdjustmentController {
 	 * @param model Model
 	 * @return 経費編集画面
 	 */
-	@RequestMapping("/user/expenseadjustment/ceate")
+	@RequestMapping("/user/expenseadjustment/create")
 	public String expenseadjustment(@Validated @ModelAttribute ExpenseAdjustmentRequest expenseAdjustmentRequest, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			List<String> errorList = new ArrayList<String>();
