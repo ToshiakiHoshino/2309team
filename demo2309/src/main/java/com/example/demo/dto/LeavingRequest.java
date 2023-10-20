@@ -16,7 +16,6 @@ public class LeavingRequest implements Serializable {
 	/**
 	 * ID
 	 */
-	@NotNull(message = "UserIDを入力してください")
 	private Integer user_id;
 
 	//ステータス
@@ -58,5 +57,5 @@ public class LeavingRequest implements Serializable {
 	/**
 	 * 稼働時間
 	 */
-	private LocalTime operetoin_time;
+	private LocalTime operatoin_time;
 }

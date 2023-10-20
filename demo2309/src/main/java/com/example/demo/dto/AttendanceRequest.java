@@ -16,7 +16,6 @@ public class AttendanceRequest implements Serializable {
 	/**
 	 * ID
 	 */
-	@NotNull(message = "UserIDを入力してください")
 	private Integer user_id;
 
 	//ステータス

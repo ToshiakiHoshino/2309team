@@ -19,17 +19,18 @@ import com.example.demo.service.AttendanceService;
 @Controller
 public class AttendanceController {
 
-	//Service
 	@Autowired
 	private AttendanceService attendanceService;
 
-	//新規登録画面の表示
-	@GetMapping("/user/attendance")
+
+	//出勤新規登録画面の表示
+	@GetMapping("/user/attendance/{@attendance_id}")
 	public String displayAdd(Model model) {
 		model.addAttribute("attendanceRequest", new AttendanceRequest());
 
 		return "attendance";
 	}
+
 
 	//出勤登録
 	@PostMapping("/user/create")

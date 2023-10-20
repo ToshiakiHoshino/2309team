@@ -20,11 +20,10 @@ import com.example.demo.service.LeavingService;
 @Controller
 public class LeavingController {
 
-	//Service
 	@Autowired
 	private LeavingService leavingService;
 
-	//登録画面の表示
+	//退勤登録画面の表示
 	@GetMapping("/user/leaving/{attendance_id}")
 	public String displayAdd(Model model,@ModelAttribute LeavingRequest leavingRequest,@PathVariable("attendance_id") Integer attendance_id) {
 		leavingService.findById(attendance_id);

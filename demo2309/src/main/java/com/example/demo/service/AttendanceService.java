@@ -12,7 +12,6 @@ import com.example.demo.repository.AttendanceRepository;
 @Transactional(rollbackFor = Exception.class)
 public class AttendanceService{
 
-	//Repository
 	@Autowired
 	private AttendanceRepository attendanceRepository;
 
@@ -24,6 +23,8 @@ public class AttendanceService{
 		attendance.setStartDate(attendanceRequest.getStart_date());
 		attendance.setStartTime(attendanceRequest.getStart_time());
 		attendance.setAttendanceid(attendanceRequest.getAttendance_id());
+		attendance.setRemarks(attendanceRequest.getRemarks());
+
 
 		attendanceRepository.save(attendance);
 	}

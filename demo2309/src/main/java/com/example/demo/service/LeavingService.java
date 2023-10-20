@@ -8,12 +8,10 @@ import com.example.demo.dto.LeavingRequest;
 import com.example.demo.entity.AttendanceCorrectionEntity;
 import com.example.demo.repository.LeavingRepository;
 
-//Service
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class LeavingService {
 
-	//Repository
 	@Autowired
 	private LeavingRepository leavingRepository;
 
@@ -23,15 +21,6 @@ public class LeavingService {
 		return leavingRepository.findById(attendance_id).get();
 	}
 
-	//	//出勤時間取得
-	//	public LocalTime findAttendanceTimeById(Integer attendance_id) {
-	//        AttendanceEntity attendanceEntity = attendanceRepository.findById(attendance_id).orElse(null);
-	//        if (attendanceEntity != null) {
-	//            return attendanceEntity.getStart_time();
-	//        } else {
-	//            return null; // レコードが見つからなかった場合の処理
-	//        }
-	//    }
 
 	//退勤新規登録(更新）
 	public void update(LeavingRequest leavingRequest) {
@@ -41,21 +30,28 @@ public class LeavingService {
 		leaving.setEndDate(leavingRequest.getEnd_date());
 		leaving.setEndTime(leavingRequest.getEnd_time());
 		leaving.setBreakTime(leavingRequest.getBreak_time());
+		leaving.setRemarks(leavingRequest.getRemarks());
 
-		//		//稼働時間
-		//		// 1.年月日時分秒をセット
-		//		LocalDateTime date1 = LocalDateTime.of(leavingRequest.getStart_date(), leavingRequest.getStart_time());
-		//		// 2.年月日時分秒をセット
-		//		LocalDateTime date2 = LocalDateTime.of(leavingRequest.getEnd_date(), leavingRequest.getEnd_time());
-		//		// 2.年月日時分秒をセット
-		//	    LocalDateTime date3 = LocalDateTime.of(leavingRequest.getEnd_date(), leavingRequest.getBreak_time());
-		//		
-		//		Duration date4 = Duration.between(date1, date2);// 合計稼働時間を取得する
-		//		Duration date5 = date4.minus(Duration.between(LocalDateTime.of(0, 1, 1, 0, 0), date3));
-		//		
-		//		leaving.setOperetion_time(date5);
-		//		
 
 		leavingRepository.save(leaving);
 	}
+	
+//	/**
+//     * 出勤時間と退勤時間の間の稼働時間を計算します（1時間の休憩時間を除く）。
+//     *
+//     * @param startTime 出勤時間
+//     * @param endTime   退勤時間
+//     * @return 稼働時間（時間単位）
+//     */
+//    public long calculateWorkingHours(LocalTime startTime, LocalTime endTime) {
+//        // 出勤時間と退勤時間の間の分単位での差を計算します。
+//        long totalMinutes = ChronoUnit.MINUTES.between(startTime, endTime);
+//        // 休憩時間（1時間＝60分）を差し引きます。
+//        long workingMinutes = totalMinutes - 60; // 1時間の休憩
+//        //S 分を時間単位に変換します。小数点以下は切り捨てます。
+//        long workingHours = workingMinutes / 60;
+//        return workingHours;
+//        
+//        leavingRepository.save(leaving);
+//    }
 }
