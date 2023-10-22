@@ -34,7 +34,7 @@ public class LeavingController {
 
 	//退勤登録（更新）
 	@PostMapping("/user/leaving/create")
-	public String update(@ModelAttribute("leavingRequest") @Validated  LeavingRequest leavingRequest, BindingResult result,
+	public String update(@Validated @ModelAttribute LeavingRequest leavingRequest, BindingResult result,
 			Model model) {
 		//入力判定
 		if (result.hasErrors()) {

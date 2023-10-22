@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,7 +20,7 @@ public class LeavingRequest implements Serializable {
 	private Integer user_id;
 
 	//ステータス
-	@NotNull(message = "ステータスを入力してください")
+	@NotEmpty(message = "ステータスを入力してください")
 	private String status;
 
 	/**
@@ -58,4 +59,18 @@ public class LeavingRequest implements Serializable {
 	 * 稼働時間
 	 */
 	private LocalTime operatoin_time;
+	
+	/**
+	 * 出勤日
+	 */
+//	@NotNull(message = "出勤日を入力してください")
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate start_date;
+	
+	/**
+	 * 出勤時間
+	 */
+//	@NotNull(message = "出勤時間を入力してください")
+//	@DateTimeFormat(pattern = "HH:mm")
+	private LocalTime start_time;
 }
