@@ -1,0 +1,77 @@
+
+@charset "utf-8";
+body {
+  background-image: url("https://i0.wp.com/nobon.me/wp-content/uploads/2013/03/1920x1080_08-001.jpg?fit=1920%2C1080&ssl=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+header{
+  margin-top: 50px;
+  color: rgb(0, 0, 255);
+
+}
+.label.label-danger {
+    color: red;
+}
+
+.userid{
+    text-align: center;
+    color: rgb(0, 0, 0);
+     font-weight: bold;
+}
+
+
+.name{
+    text-align: center;
+    color: rgb(0, 0, 0);
+     font-weight: bold;
+}
+
+.furigana{
+    text-align: center;
+    color: rgb(0, 0, 0);
+     font-weight: bold;
+}
+
+.address{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+     font-weight: bold;
+
+}
+
+.password{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+     font-weight: bold;
+ }
+
+
+h1{
+  font-size: 40px;
+    font-weight: bold;
+    margin: 20;
+  text-align: center;
+}
+
+.form-group{
+  margin-bottom: 50px;
+}
+footer p{
+  text-align: center;
+}
+
+input[type="email"]:invalid{
+  background: rgb(255, 255, 255);
+}
+
+input:focus{
+  background: rgb(255, 255, 255);
+}
+
+.container {
+    text-align: center; 
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/UserRegistration.css}">
+	<title>ユーザー登録</title>
+</head>
+
+<body>
+	<div class="button001">
+		<div th:if="${validationError}" th:each="error : ${validationError}">
+			<label class="text-danger" th:text="${error}"></label>
+		</div>
+		<div class="container">
+			<header>
+				<div class="row">
+					<h1>ユーザー登録</h1>
+				</div>
+			</header>
+		</div>
+		<div class="container">
+			<form th:action="@{/user/create}" th:object="${userRegistrationRequest}" th:method="post" class="row">
+				<div class="name">
+					<div class="form-group">
+						<label for="name"><span class="label label-danger">必須</span> 名前</label>
+						<input type="text" th:field="*{name}" id="name" name="name" class="form-control"
+							placeholder="例：山田　太郎">
+					</div>
+					<div class="furigana">
+						<div class="form-group">
+							<label for="name"><span class="label label-danger">必須</span> フリガナ</label>
+							<input type="text" th:field="*{furigana}" id="furigana" name="furigana" class="form-control"
+								placeholder="例：ヤマダ　タロウ">
+						</div>
+						<div class="address">
+							<div class="form-group">
+								<label for="email"><span class="label label-danger">必須</span> メールアドレス</label>
+								<input type="email" th:field="*{address}" id="email" name="email" class="form-control"
+									placeholder="例：raffaello@jungleocean.com" required>
+							</div>
+						</div>
+						<div class="password">
+							<div class="form-group">
+								<label for="name"><span class="label label-danger">必須</span>パスワード</label>
+								<input type="text" th:field="*{password}" id="password" name="password"
+									class="form-control" placeholder="" autofocus required>
+							</div>
+							<div class="button002">
+								<button type="submit">登録</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<footer>
+			</footer>
+		</div>
+</body>
+
+</html>

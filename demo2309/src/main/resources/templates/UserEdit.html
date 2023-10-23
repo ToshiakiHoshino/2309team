@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ユーザー編集・削除</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/UserEdit.css}">
+</head>
+<body>
+  
+		<div th:if="${validationError}" th:each="error : ${validationError}">
+			       <label class="text-danger" th:text="${error}"></label>
+        <a href="#">↩戻る</a>
+    </div>
+    <div class="container">
+        <header>
+           <div class="row">
+                    <h1>ユーザー編集・削除</h1>
+            </div>
+        </header>
+    </div>
+
+    
+    
+    <div class="container">
+		 <form th:action="@{/user/update}" th:object="${userUpdateRequest}" th:method="post" class="row">
+
+
+            <div class="userid">
+                <div class="form-group">
+                    <label for="name"><span class="label label-danger">必須</span> User ID</label>
+                    <input type="text"  th:field="*{userid}" id="UserId" name="UserId" class="form-control">
+
+</div>
+</div>
+            <div class="name">
+                <div class="form-group">
+                    <label for="name"><span class="label label-danger"></span> 名前</label>
+                    <input type="text" th:field="*{name}" id="name" name="name" class="form-control">
+                </div>
+</div>
+                <div class="furigana">
+                    <div class="form-group">
+                        <label for="name"><span class="label label-danger"></span> フリガナ</label>
+                        <input type="text" th:field="*{furigana}" id="furigana" name="furigana" class="form-control">
+                    </div>
+
+                <div class="address">     
+                        <label for="email"><span class="label label-danger"></span> メールアドレス</label>
+                        <input type="email" th:field="*{address}"  id="email" name="email" class="form-control" placeholder="例：raffaello@jungleocean.com" required>
+                    </div>
+                </div>
+
+                <div class="password">
+                    <div class="form-group">
+                        <label for="name"><span class="label label-danger"></span>パスワード</label>
+                        <input type="text" th:field="*{password}"  id="password" name="password" class="form-control" placeholder="" autofocus required>
+                    </div>
+
+                    
+                    <div class="button002">
+						<input type="submit" value="登録" class="btn btn-primary">
+						
+                    </div>
+
+                
+            </div>
+        </form>
+        <input type="submit" th:href="@{/user/{userid}/delete}" class="btn btn-secondary" value="削除">
+    </div>
+
+
+
+    <div class="container">
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
